@@ -51,14 +51,22 @@ android {
 dependencies {
 
     implementation("androidx.core:core-ktx:1.8.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
+
+    val lifeCycleVersion = "2.5.1"
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleVersion")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifeCycleVersion")
     implementation("androidx.activity:activity-compose:1.5.1")
 
     val composeVersion = "1.2.1"
     implementation("androidx.compose.ui:ui:$composeVersion")
     implementation("androidx.compose.material:material:$composeVersion")
     implementation("androidx.compose.ui:ui-tooling-preview:$composeVersion")
+
     debugImplementation("androidx.compose.ui:ui-tooling:$composeVersion")
 
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.24.2-alpha")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:0.24.10-beta")
+
+    val workVersion = "2.7.1"
+    implementation ("androidx.work:work-runtime-ktx:$workVersion")
+    implementation ("androidx.work:work-runtime-ktx:$workVersion")
 }
