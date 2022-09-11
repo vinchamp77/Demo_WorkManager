@@ -8,14 +8,6 @@ import vtsen.hashnode.dev.workmanagerdemo.R
 import vtsen.hashnode.dev.workmanagerdemo.ui.theme.NewEmptyComposeAppTheme
 
 @Composable
-fun MainScreen() {
+fun MainScreen(viewModel: MainViewModel) {
     Text(text = stringResource(id = R.string.hello_android))
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    NewEmptyComposeAppTheme(useSystemUIController = false) {
-        MainScreen()
-    }
 }

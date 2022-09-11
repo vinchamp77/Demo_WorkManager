@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
                 val viewModel: MainViewModel = viewModel()
                 viewModel.setWorkManager(WorkManager.getInstance(applicationContext))
 
-                MainScreen()
+                MainScreen(viewModel)
             }
         }
     }
