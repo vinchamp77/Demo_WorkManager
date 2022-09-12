@@ -41,7 +41,7 @@ class MainViewModel: ViewModel() {
 
     fun runPeriodicWorkRequest() {
 
-        //Note: repeatInterval must be > MIN_PERIODIC_INTERVAL_MILLIS (15 minutes)
+        //Note: repeatInterval must be >= MIN_PERIODIC_INTERVAL_MILLIS (15 minutes)
         val workRequest = PeriodicWorkRequestBuilder<DemoWorker>(16, TimeUnit.MINUTES)
             .build()
 
