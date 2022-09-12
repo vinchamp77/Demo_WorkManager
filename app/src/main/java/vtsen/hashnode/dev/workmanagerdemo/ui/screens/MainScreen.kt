@@ -1,13 +1,40 @@
 package vtsen.hashnode.dev.workmanagerdemo.ui.screens
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
-import vtsen.hashnode.dev.workmanagerdemo.R
-import vtsen.hashnode.dev.workmanagerdemo.ui.theme.NewEmptyComposeAppTheme
+import androidx.compose.ui.Modifier
 
 @Composable
 fun MainScreen(viewModel: MainViewModel) {
-    Text(text = stringResource(id = R.string.hello_android))
+
+    Column(modifier = Modifier.verticalScroll(rememberScrollState())) {
+        Button(onClick = {
+            viewModel.runOneTimeWorkRequest()
+        }) {
+            Text("One Time Work Request")
+        }
+
+        Button(onClick = {
+            viewModel.runOneTimeExpeditedWorkRequest()
+        }) {
+            Text("One Time Expedite Work Request")
+        }
+
+        Button(onClick = {
+            viewModel.runPeriodicWorkRequest()
+        }) {
+            Text("Periodic Work Request")
+        }
+
+
+        Button(onClick = {
+            viewModel.cancelWorker()
+        }) {
+            Text("Cancel Worker!")
+        }
+    }
 }
