@@ -26,7 +26,6 @@ class DemoWorker(appContext: Context, params: WorkerParameters)
 
     private val notificationChannelId = "DemoNotificationChannelId"
 
-    @RequiresApi(Build.VERSION_CODES.M)
     override suspend fun doWork(): Result {
         delay(5000)
         Log.d("DemoWorker", "do work done!")
