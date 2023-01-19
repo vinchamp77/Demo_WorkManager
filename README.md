@@ -1,5 +1,3 @@
 # Work Manager Demo
 
-## Articles
-
-## Branches
+A simple app do demostarte Work Manager usages
