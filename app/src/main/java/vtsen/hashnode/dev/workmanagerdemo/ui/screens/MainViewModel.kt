@@ -52,6 +52,20 @@ class MainViewModel: ViewModel() {
 
     }
 
+    fun runPeriodicWorkRequestInitialDelay() {
+
+        //Note: repeatInterval must be >= MIN_PERIODIC_INTERVAL_MILLIS (15 minutes)
+        val workRequest = PeriodicWorkRequestBuilder<DemoWorker>(16, TimeUnit.MINUTES)
+            .setInitialDelay(5, TimeUnit.SECONDS)
+            .build()
+
+        workManager.enqueueUniquePeriodicWork(
+            workName,
+            ExistingPeriodicWorkPolicy.REPLACE,
+            workRequest)
+
+    }
+
     fun cancelWorker() {
         workManager.cancelUniqueWork(workName)
     }

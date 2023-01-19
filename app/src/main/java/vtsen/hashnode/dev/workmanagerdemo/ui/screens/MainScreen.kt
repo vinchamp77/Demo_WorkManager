@@ -30,6 +30,12 @@ fun MainScreen(viewModel: MainViewModel) {
             Text("Periodic Work Request")
         }
 
+        Button(onClick = {
+            viewModel.runPeriodicWorkRequestInitialDelay()
+        }) {
+            Text("Periodic Work Request - Initial Delay")
+        }
+
 
         Button(onClick = {
             viewModel.cancelWorker()
