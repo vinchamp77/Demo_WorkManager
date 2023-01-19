@@ -1,3 +1,3 @@
 # Work Manager Demo
 
-A simple app do demostarte Work Manager usages
+A simple app to demostarte Work Manager usages
