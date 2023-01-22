@@ -44,7 +44,6 @@ class DemoWorker(private val appContext: Context, params: WorkerParameters)
         return Result.success()
     }
 
-    // required only when .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
     override suspend fun getForegroundInfo(): ForegroundInfo {
         return ForegroundInfo(
             0, createNotification()
