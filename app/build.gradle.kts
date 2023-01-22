@@ -38,7 +38,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0"
+        kotlinCompilerExtensionVersion = "1.3.2"
     }
     packagingOptions {
         resources {
@@ -52,17 +52,15 @@ dependencies {
 
     implementation("androidx.core:core-ktx:1.9.0")
 
-    val lifeCycleVersion = "2.5.1"
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:$lifeCycleVersion")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifeCycleVersion")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.5.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.5.1")
     implementation("androidx.activity:activity-compose:1.6.1")
 
-    val composeVersion = "1.2.1"
-    implementation("androidx.compose.ui:ui:$composeVersion")
-    implementation("androidx.compose.material:material:$composeVersion")
-    implementation("androidx.compose.ui:ui-tooling-preview:$composeVersion")
+    implementation("androidx.compose.ui:ui:1.3.3")
+    implementation("androidx.compose.material:material:1.3.1")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.3.3")
 
-    debugImplementation("androidx.compose.ui:ui-tooling:$composeVersion")
+    debugImplementation("androidx.compose.ui:ui-tooling:1.3.3")
 
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.28.0")
 
