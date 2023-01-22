@@ -1,14 +1,16 @@
 package vtsen.hashnode.dev.workmanagerdemo.workers
 
+import android.Manifest
 import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Build
 import android.util.Log
-import androidx.annotation.RequiresApi
+import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat.getSystemService
@@ -21,7 +23,7 @@ import vtsen.hashnode.dev.workmanagerdemo.ui.MainActivity
 import kotlin.properties.Delegates
 
 //Note: a new worker is created everytime when it runs
-class DemoWorker(appContext: Context, params: WorkerParameters)
+class DemoWorker(private val appContext: Context, params: WorkerParameters)
     : CoroutineWorker(appContext, params) {
 
     private val notificationChannelId = "DemoNotificationChannelId"
@@ -30,8 +32,13 @@ class DemoWorker(appContext: Context, params: WorkerParameters)
         delay(5000)
         Log.d("DemoWorker", "do work done!")
 
-        with(NotificationManagerCompat.from(applicationContext)) {
-            notify(0, createNotification())
+        if (ActivityCompat.checkSelfPermission(
+                appContext,
+                Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+        ) {
+            with(NotificationManagerCompat.from(applicationContext)) {
+                notify(0, createNotification())
+            }
         }
 
         return Result.success()
