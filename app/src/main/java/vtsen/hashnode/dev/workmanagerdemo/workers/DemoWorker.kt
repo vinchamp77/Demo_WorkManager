@@ -23,8 +23,10 @@ import vtsen.hashnode.dev.workmanagerdemo.ui.MainActivity
 import kotlin.properties.Delegates
 
 //Note: a new worker is created everytime when it runs
-class DemoWorker(private val appContext: Context, params: WorkerParameters)
-    : CoroutineWorker(appContext, params) {
+class DemoWorker(
+    private val appContext: Context,
+    params: WorkerParameters
+) : CoroutineWorker(appContext, params) {
 
     private val notificationChannelId = "DemoNotificationChannelId"
 
@@ -34,7 +36,8 @@ class DemoWorker(private val appContext: Context, params: WorkerParameters)
 
         if (ActivityCompat.checkSelfPermission(
                 appContext,
-                Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+                Manifest.permission.POST_NOTIFICATIONS)
+                    == PackageManager.PERMISSION_GRANTED
         ) {
             with(NotificationManagerCompat.from(applicationContext)) {
                 notify(0, createNotification())
@@ -53,7 +56,9 @@ class DemoWorker(private val appContext: Context, params: WorkerParameters)
     private fun createNotification() : Notification {
         createNotificationChannel()
 
-        val mainActivityIntent = Intent(applicationContext, MainActivity::class.java)
+        val mainActivityIntent = Intent(
+            applicationContext,
+            MainActivity::class.java)
 
         var pendingIntentFlag by Delegates.notNull<Int>()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -69,7 +74,10 @@ class DemoWorker(private val appContext: Context, params: WorkerParameters)
             pendingIntentFlag)
 
 
-        return NotificationCompat.Builder(applicationContext, notificationChannelId)
+        return NotificationCompat.Builder(
+            applicationContext,
+            notificationChannelId
+        )
             .setSmallIcon(R.drawable.ic_launcher_background)
             .setContentTitle(applicationContext.getString(R.string.app_name))
             .setContentText("Work Request Done!")
@@ -89,9 +97,13 @@ class DemoWorker(private val appContext: Context, params: WorkerParameters)
             )
 
             val notificationManager: NotificationManager? =
-                getSystemService(applicationContext, NotificationManager::class.java)
+                getSystemService(
+                    applicationContext,
+                    NotificationManager::class.java)
 
-            notificationManager?.createNotificationChannel(notificationChannel)
+            notificationManager?.createNotificationChannel(
+                notificationChannel
+            )
         }
     }
 }

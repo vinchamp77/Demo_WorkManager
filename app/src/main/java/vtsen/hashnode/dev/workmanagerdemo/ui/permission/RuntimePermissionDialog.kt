@@ -23,8 +23,9 @@ fun RuntimePermissionsDialog(
                 LocalContext.current,
                 permission) != PackageManager.PERMISSION_GRANTED) {
 
-            val requestLocationPermissionLauncher = rememberLauncherForActivityResult(
-                ActivityResultContracts.RequestPermission()
+            val requestLocationPermissionLauncher =
+                rememberLauncherForActivityResult(
+                    ActivityResultContracts.RequestPermission()
             ) { isGranted: Boolean ->
 
                 if (isGranted) {
